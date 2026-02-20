@@ -3,6 +3,8 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+//引用初始化样式文件：
+import '@/styles/common.scss'
 //测试接口函数
 // import { getCategory } from '@/apis/testApi'
 // getCategory().then(res => {
