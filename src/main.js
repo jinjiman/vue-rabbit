@@ -10,7 +10,6 @@ import '@/styles/common.scss'
 // getCategory().then(res => {
 //   console.log(res);
 // })
-
 const app = createApp(App)
 
 app.use(createPinia())
