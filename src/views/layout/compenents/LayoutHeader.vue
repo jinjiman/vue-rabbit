@@ -1,19 +1,7 @@
 <script setup>
-import {getCategoryAPI} from '@/apis/layout'//因为@/apis/layout没有用default导出，所以必须加{},至于.js后缀可以随意的省略
-import { onMounted, ref } from 'vue'
+import {useCategoryStore} from '@/stores/category'
+const categoryStore = useCategoryStore()
 
-const list = ref([])
-const getCategory = async () => {
-  const res = await getCategoryAPI()
-  // console.log(res);
-  list.value = res.result
-  // console.log(list.value);
-  
-}
-
-onMounted(() =>{
-  getCategory()
-})
 </script>
 
 <template>
@@ -23,7 +11,7 @@ onMounted(() =>{
         <RouterLink to="/">小兔鲜</RouterLink>
       </h1>
       <ul class="app-header-nav">
-        <li class="home"  v-for="item in list" :key="item.id">
+        <li class="home"  v-for="item in categoryStore.categorylist" :key="item.id">
           <!-- <RouterLink> 是 Vue Router的组件，用于实现页面跳转，to="/"可以指定跳转的地址 -->
           <RouterLink to="/">{{item.name}}</RouterLink>
         </li>

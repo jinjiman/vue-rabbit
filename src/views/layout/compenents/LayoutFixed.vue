@@ -1,11 +1,12 @@
 <script setup>
 import {useScroll} from '@vueuse/core'
-const obj = useScroll(window)
+import {useCategoryStore} from '@/stores/category'
+// const obj = useScroll(window)
 //这个是例子，其中obj是useScroll返回的一个完整的对象，其为：
 // {x , y , isScrolling , arrivedState ，directions}
 const {y} = useScroll(window)
 // 而{y}只是取其中的y元素，这个y对应着y轴的滚动距离
-
+const categoryStore = useCategoryStore()
 </script>
 
 <template>
@@ -15,35 +16,9 @@ const {y} = useScroll(window)
       <RouterLink class="logo" to="/" />
       <!-- 导航区域 -->
       <ul class="app-header-nav ">
-        <li class="home">
-          <RouterLink to="/">首页</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">居家</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">美食</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">服饰</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">母婴</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">个护</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">严选</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">数码</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">运动</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">杂项</RouterLink>
+        <li class="home"  v-for="item in categoryStore.categorylist" :key="item.id">
+          <!-- <RouterLink> 是 Vue Router的组件，用于实现页面跳转，to="/"可以指定跳转的地址 -->
+          <RouterLink to="/">{{item.name}}</RouterLink>
         </li>
       </ul>
 
