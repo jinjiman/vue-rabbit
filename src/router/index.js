@@ -17,7 +17,7 @@ const router = createRouter({
           component: Home//二级组件也需要一个渲染出口，写在它上面的一级组件里面就好
         },
         {
-          path: 'category',
+          path: 'category/:id',
           component: Category//二级组件也需要一个渲染出口，写在它上面的一级组件里面就好
         }
       ]
