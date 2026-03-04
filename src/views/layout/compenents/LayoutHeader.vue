@@ -18,7 +18,7 @@ const categoryStore = useCategoryStore()
 
         <li class="home"  v-for="item in categoryStore.categorylist" :key="item.id">
           <!-- <RouterLink> 是 Vue Router的组件，用于实现页面跳转，to="/"可以指定跳转的地址 -->
-          <RouterLink :to="`/category/${item.id}`">{{item.name}}</RouterLink>
+          <RouterLink active-class="active" :to="`/category/${item.id}`">{{item.name}}</RouterLink>
         </li>
       </ul>
 
