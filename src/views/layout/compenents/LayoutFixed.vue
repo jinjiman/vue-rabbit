@@ -17,10 +17,10 @@ const categoryStore = useCategoryStore()
       <!-- 导航区域 -->
       <ul class="app-header-nav ">
         <li class="home">
-          <RouterLink to="/">居家</RouterLink>
+          <RouterLink to="/">首页</RouterLink>
         </li>
 
-        <li class="home"  v-for="item in categoryStore.categorylist.slice(1)" :key="item.id">
+        <li class="home"  v-for="item in categoryStore.categorylist" :key="item.id">
           <!-- <RouterLink> 是 Vue Router的组件，用于实现页面跳转，to="/"可以指定跳转的地址 -->
           <RouterLink :to="`/category/${item.id}`">{{item.name}}</RouterLink>
         </li>
