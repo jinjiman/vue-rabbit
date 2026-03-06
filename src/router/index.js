@@ -5,6 +5,7 @@ import Login from '@/views/login/index.vue'
 import Layout from '@/views/layout/index.vue'
 import Home from '@/views/home/index.vue'
 import Category from '@/views/category/index.vue'
+import SubCategory from '@/views/SubCategory/index.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,6 +20,10 @@ const router = createRouter({
         {
           path: 'category/:id',
           component: Category//二级组件也需要一个渲染出口，写在它上面的一级组件里面就好
+        },
+        {
+          path: 'category/sub/:id',
+          component: SubCategory
         }
       ]
     },
