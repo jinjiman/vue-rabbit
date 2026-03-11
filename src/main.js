@@ -6,6 +6,7 @@ import router from './router'
 //引用初始化样式文件：
 import '@/styles/common.scss'
 import { lazyPlugin } from '@/directives/index'
+import { componentPlugin } from '@/components/index'
 // import { useIntersectionObserver } from '@vueuse/core'
 //测试接口函数
 // import { getCategory } from '@/apis/testApi'
@@ -18,7 +19,7 @@ app.use(createPinia())
 app.use(router)
 
 //app的directive方法可以自定义指令
-
+app.use(componentPlugin)
 app.mount('#app')
 app.use(lazyPlugin)//等价于lazyPlugin.install(app)
 // app.directive('img-lazy', {
