@@ -7,6 +7,7 @@ import router from './router'
 import '@/styles/common.scss'
 import { lazyPlugin } from '@/directives/index'
 import { componentPlugin } from '@/components/index'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 // import { useIntersectionObserver } from '@vueuse/core'
 //测试接口函数
 // import { getCategory } from '@/apis/testApi'
@@ -14,8 +15,9 @@ import { componentPlugin } from '@/components/index'
 //   console.log(res);
 // })
 const app = createApp(App)
-
-app.use(createPinia())
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+app.use(pinia)
 app.use(router)
 
 //app的directive方法可以自定义指令
